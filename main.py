@@ -7,16 +7,17 @@ import os
 original_torch_load = torch.load
 
 def patched_load(*args, **kwargs):
-    kwargs["weights_only"] = False
+    kwargs["weights_only"] = False  # Required for XTTS full model load
     return original_torch_load(*args, **kwargs)
 
 torch.load = patched_load
 
-# ─── PATCH: Allow XTTS config class ─────────────────────────────────────────────
-from TTS.tts.configs.xtts_config import XttsConfig
-from torch.serialization import add_safe_globals
+# ─── PATCH: Let XTTS call .generate() ───────────────────────────────────────────
+from transformers import PreTrainedModel
+from transformers.generation.utils import GenerationMixin
 
-add_safe_globals({ "TTS.tts.configs.xtts_config.XttsConfig": XttsConfig })
+if not issubclass(PreTrainedModel, GenerationMixin):
+    PreTrainedModel.__bases__ += (GenerationMixin,)
 
 # ─── Load XTTS Model ────────────────────────────────────────────────────────────
 from TTS.api import TTS
@@ -44,5 +45,3 @@ async def generate_tts(text: str = Form(...), speaker_wav: UploadFile = File(...
 
     os.remove(input_path)
     return FileResponse(output_path, media_type="audio/wav", filename="output.wav")
-
-

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ffmpeg -i input.m4a -ac 1 -ar 16000 input.wav
