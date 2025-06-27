@@ -1,3 +1,6 @@
 #!/bin/bash
 
 ssh -i "echoid-keys.pem" ubuntu@51.21.170.175
+
+
+# curl http://51.21.170.175:8000/docs
