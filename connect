@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh -i "echoid-newkeys.pem" ubuntu@13.51.146.231
+ssh -i "echoid-keys.pem" ubuntu@65.0.204.131
 
 # 16.171.177.136
 # curl http://51.21.170.175:8000/docs
