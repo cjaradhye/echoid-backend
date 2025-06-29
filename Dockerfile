@@ -9,7 +9,9 @@ COPY . /app
  
 # Install dependencies
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cpu
+RUN pip install -r requirements.txt
+RUN pip install torch==2.3.0+cpu torchaudio==2.3.0+cpu --index-url https://download.pytorch.org/whl/cpu
+
 
 # Expose port
 EXPOSE 8000
