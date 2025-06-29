@@ -9,7 +9,7 @@ COPY . /app
  
 # Install dependencies
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --index-url https://download.pytorch.org/whl/cpu
 
 # Expose port
 EXPOSE 8000

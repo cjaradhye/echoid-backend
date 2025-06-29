@@ -1,6 +1,8 @@
 #!/bin/bash
 
-ssh -i "echoid-keys.pem" ubuntu@65.0.204.131
+# ssh -i "echoid-keys.pem" ubuntu@65.0.204.131
+ssh -i "echoid-keys.pem" ubuntu@ec2-65-0-95-89.ap-south-1.compute.amazonaws.com
+http://65.0.95.89:8000
 
 # 16.171.177.136
 # curl http://51.21.170.175:8000/docs

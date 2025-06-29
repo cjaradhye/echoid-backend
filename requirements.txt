@@ -7,11 +7,11 @@ orjson==3.10.18
 python-multipart==0.0.20
 
 # TTS dependencies
-# torch==2.2.2+cpu
-# torchaudio==2.2.2+cpu
-# TTS==0.22.0
-# transformers==4.38.2
-huggingface-hub==0.33.0
+torch==2.3.0+cpu
+torchaudio==2.3.0+cpu
+TTS==0.22.0
+transformers==4.38.2
+huggingface-hub==0.33.0g
 soundfile==0.13.1
 numpy==1.26.4
 scipy==1.15.3
