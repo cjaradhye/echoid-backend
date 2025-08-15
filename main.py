@@ -22,7 +22,7 @@ if not issubclass(PreTrainedModel, GenerationMixin):
     PreTrainedModel.__bases__ += (GenerationMixin,)
 
 # ─── Load XTTS Model ────────────────────────────────────────────────────────────
-from TTS.api import TTS
+from model_TTS.api import TTS
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to("cpu")
 
 # ─── FastAPI Setup ──────────────────────────────────────────────────────────────

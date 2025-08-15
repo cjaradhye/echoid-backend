@@ -1,9 +1,9 @@
 import torch
-from TTS.tts.configs.xtts_config import XttsConfig
+from model_TTS.tts.configs.xtts_config import XttsConfig
 from torch.serialization import add_safe_globals
 
 # PATCH: Allow XTTS config
-add_safe_globals({"TTS.tts.configs.xtts_config.XttsConfig": XttsConfig})
+add_safe_globals({"model_TTS.tts.configs.xtts_config.XttsConfig": XttsConfig})
 
 # PATCH: Force weights_only=False
 original_torch_load = torch.load
@@ -13,7 +13,7 @@ def patched_load(*args, **kwargs):
 torch.load = patched_load
 
 # ─── Run TTS ─────────────────────────────────────────────
-from TTS.api import TTS
+from model_TTS.api import TTS
 
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to("cpu")
 tts.tts_to_file(

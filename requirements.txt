@@ -7,7 +7,8 @@ orjson==3.10.18
 python-multipart==0.0.20
 
 # TTS dependencies
-TTS==0.22.0
+# Install from local model_TTS folder
+-e ./model_TTS
 transformers
 huggingface-hub==0.33.0
 soundfile==0.13.1
